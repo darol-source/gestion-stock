@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Connexion | Gestion de Stock</title>
+
+    <link rel="stylesheet" href="css/login.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <main class="login-page">
+
+        <section class="login-container">
+
+            <!-- ========================= -->
+            <!-- PARTIE PRESENTATION -->
+            <!-- ========================= -->
+
+            <div class="login-presentation">
+
+                <div class="brand">
+
+                    <div class="brand-icon">
+                        <i class="fa-solid fa-boxes-stacked"></i>
+                    </div>
+
+                    <div>
+                        <h1>StockFlow</h1>
+                        <span>Gestion de Stock</span>
+                    </div>
+
+                </div>
+
+                <div class="presentation-content">
+
+                    <span class="presentation-label">
+                        ADMINISTRATION
+                    </span>
+
+                    <h2>
+                        Gérez votre stock
+                        <span>simplement.</span>
+                    </h2>
+
+                    <p>
+                        Centralisez vos produits, vos dépôts et vos
+                        opérations de stock depuis une seule interface.
+                    </p>
+
+                </div>
+
+                <div class="presentation-footer">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <span>
+                        Accès sécurisé à l'espace d'administration
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ========================= -->
+            <!-- PARTIE FORMULAIRE -->
+            <!-- ========================= -->
+
+            <div class="login-form-container">
+
+
+                <!-- ========================= -->
+                <!-- FORMULAIRE CONNEXION -->
+                <!-- ========================= -->
+
+                <div
+                    id="loginSection"
+                    class="auth-section active"
+                >
+
+                    <div class="login-header">
+
+                        <span class="mobile-brand">
+                            StockFlow
+                        </span>
+
+                        <h2>Bienvenue</h2>
+
+                        <p>
+                            Connectez-vous à votre espace administrateur.
+                        </p>
+
+                    </div>
+
+
+                    <form id="loginForm">
+
+                        <!-- EMAIL -->
+
+                        <div class="form-group">
+
+                            <label for="loginEmail">
+                                Email
+                            </label>
+
+                            <div class="input-container">
+
+                                <i
+                                    class="fa-regular fa-envelope input-icon"
+                                ></i>
+
+                                <input
+                                    type="email"
+                                    id="loginEmail"
+                                    name="loginEmail"
+                                    placeholder="Entrez votre adresse email"
+                                    autocomplete="username"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- MOT DE PASSE -->
+
+                        <div class="form-group">
+
+                            <label for="loginPassword">
+                                Mot de passe
+                            </label>
+
+                            <div class="input-container">
+
+                                <i
+                                    class="fa-solid fa-lock input-icon"
+                                ></i>
+
+                                <input
+                                    type="password"
+                                    id="loginPassword"
+                                    name="loginPassword"
+                                    placeholder="Entrez votre mot de passe"
+                                    autocomplete="current-password"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-target="loginPassword"
+                                    aria-label="Afficher le mot de passe"
+                                >
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- MESSAGE -->
+
+                        <div
+                            id="loginMessage"
+                            class="auth-message"
+                            role="alert"
+                        ></div>
+
+
+                        <!-- BOUTON -->
+
+                        <button
+                            type="submit"
+                            id="loginButton"
+                            class="auth-button"
+                        >
+
+                            <span class="button-text">
+                                Se connecter
+                            </span>
+
+                            <span class="button-loader">
+                                <i class="fa-solid fa-spinner"></i>
+                            </span>
+
+                            <i class="fa-solid fa-arrow-right button-icon"></i>
+
+                        </button>
+
+                    </form>
+
+
+                    <!-- CREATION COMPTE -->
+
+                    <div class="switch-auth">
+
+                        <span>
+                            Vous n'avez pas encore de compte administrateur ?
+                        </span>
+
+                        <button
+                            type="button"
+                            id="showRegister"
+                            class="switch-button"
+                        >
+                            Créer le compte
+                        </button>
+
+                    </div>
+
+
+                    <div class="login-footer">
+
+                        <i class="fa-solid fa-circle-info"></i>
+
+                        <span>
+                            Cet espace est réservé aux administrateurs.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ========================= -->
+                <!-- FORMULAIRE CREATION -->
+                <!-- ========================= -->
+
+                <div
+                    id="registerSection"
+                    class="auth-section"
+                >
+
+                    <div class="login-header">
+
+                        <span class="mobile-brand">
+                            StockFlow
+                        </span>
+
+                        <h2>Créer le compte</h2>
+
+                        <p>
+                            Créez le compte du premier administrateur.
+                        </p>
+
+                    </div>
+
+
+                    <form id="registerForm">
+
+                        <!-- NOM COMPLET -->
+
+                        <div class="form-group">
+
+                            <label for="registerName">
+                                Nom complet
+                            </label>
+
+                            <div class="input-container">
+
+                                <i
+                                    class="fa-regular fa-user input-icon"
+                                ></i>
+
+                                <input
+                                    type="text"
+                                    id="registerName"
+                                    name="registerName"
+                                    placeholder="Entrez votre nom complet"
+                                    autocomplete="name"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+
+                        <div class="form-group">
+
+                            <label for="registerEmail">
+                                Email
+                            </label>
+
+                            <div class="input-container">
+
+                                <i
+                                    class="fa-regular fa-envelope input-icon"
+                                ></i>
+
+                                <input
+                                    type="email"
+                                    id="registerEmail"
+                                    name="registerEmail"
+                                    placeholder="Entrez votre adresse email"
+                                    autocomplete="email"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- MOT DE PASSE -->
+
+                        <div class="form-group">
+
+                            <label for="registerPassword">
+                                Mot de passe
+                            </label>
+
+                            <div class="input-container">
+
+                                <i
+                                    class="fa-solid fa-lock input-icon"
+                                ></i>
+
+                                <input
+                                    type="password"
+                                    id="registerPassword"
+                                    name="registerPassword"
+                                    placeholder="Créez votre mot de passe"
+                                    autocomplete="new-password"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-target="registerPassword"
+                                    aria-label="Afficher le mot de passe"
+                                >
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CONFIRMATION -->
+
+                        <div class="form-group">
+
+                            <label for="registerConfirmPassword">
+                                Confirmer le mot de passe
+                            </label>
+
+                            <div class="input-container">
+
+                                <i
+                                    class="fa-solid fa-lock input-icon"
+                                ></i>
+
+                                <input
+                                    type="password"
+                                    id="registerConfirmPassword"
+                                    name="registerConfirmPassword"
+                                    placeholder="Confirmez votre mot de passe"
+                                    autocomplete="new-password"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-target="registerConfirmPassword"
+                                    aria-label="Afficher le mot de passe"
+                                >
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- MESSAGE -->
+
+                        <div
+                            id="registerMessage"
+                            class="auth-message"
+                            role="alert"
+                        ></div>
+
+
+                        <!-- BOUTON -->
+
+                        <button
+                            type="submit"
+                            id="registerButton"
+                            class="auth-button"
+                        >
+
+                            <span class="button-text">
+                                Créer le compte
+                            </span>
+
+                            <span class="button-loader">
+                                <i class="fa-solid fa-spinner"></i>
+                            </span>
+
+                            <i class="fa-solid fa-user-plus button-icon"></i>
+
+                        </button>
+
+                    </form>
+
+
+                    <!-- RETOUR CONNEXION -->
+
+                    <div class="switch-auth">
+
+                        <span>
+                            Vous avez déjà un compte ?
+                        </span>
+
+                        <button
+                            type="button"
+                            id="showLogin"
+                            class="switch-button"
+                        >
+                            Se connecter
+                        </button>
+
+                    </div>
+
+
+                    <div class="login-footer">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                        <span>
+                            Un seul compte administrateur peut être créé.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/login.js"></script>
+
+</body>
+</html>

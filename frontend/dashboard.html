@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin | StockFlow</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <div class="app-layout">
+
+        <!-- ========================= -->
+        <!-- SIDEBAR -->
+        <!-- ========================= -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-header">
+                <div class="brand-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 7L12 3L21 7L12 11L3 7Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                        <path d="M3 12L12 16L21 12" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                        <path d="M3 17L12 21L21 17" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <span class="brand-name">StockFlow</span>
+                <button class="sidebar-toggle" id="sidebarToggle" aria-label="Réduire le menu">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <button class="nav-item active" data-section="overview">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="3" width="7" height="9" rx="1.2" stroke="currentColor" stroke-width="1.6"/>
+                        <rect x="14" y="3" width="7" height="5" rx="1.2" stroke="currentColor" stroke-width="1.6"/>
+                        <rect x="14" y="12" width="7" height="9" rx="1.2" stroke="currentColor" stroke-width="1.6"/>
+                        <rect x="3" y="16" width="7" height="5" rx="1.2" stroke="currentColor" stroke-width="1.6"/>
+                    </svg>
+                    <span>Vue d'ensemble</span>
+                </button>
+
+                <button class="nav-item" data-section="produits">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 8L12 3L3 8V16L12 21L21 16V8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                        <path d="M3 8L12 13L21 8" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                        <path d="M12 13V21" stroke="currentColor" stroke-width="1.6"/>
+                    </svg>
+                    <span>Produits</span>
+                </button>
+
+                <button class="nav-item" data-section="depots">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 10L12 4L21 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5 10V20H19V10" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                        <path d="M10 20V14H14V20" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Dépôts</span>
+                </button>
+
+                <button class="nav-item" data-section="entrees">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4V16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M7 11L12 16L17 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4 20H20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    </svg>
+                    <span>Entrées</span>
+                </button>
+
+                <button class="nav-item" data-section="sorties">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 16V4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M7 9L12 4L17 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4 20H20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    </svg>
+                    <span>Sorties</span>
+                </button>
+
+                <button class="nav-item" data-section="transferts">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 7H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M13 4L16 7L13 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M20 17H8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M11 14L8 17L11 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Transferts</span>
+                </button>
+
+                <button class="nav-item" data-section="inventaires">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="3" width="16" height="18" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+                        <path d="M8 8H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M8 12H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M8 16H12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    </svg>
+                    <span>Inventaires</span>
+                </button>
+
+                <button class="nav-item" data-section="signalements">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 9V13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        <path d="M12 16.5V16.51" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M10.29 3.86L1.82 18A1.5 1.5 0 003.1 20.25H20.9A1.5 1.5 0 0022.18 18L13.71 3.86A1.5 1.5 0 0010.29 3.86Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Signalements</span>
+                </button>
+
+                <button class="nav-item" data-section="journal">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/>
+                        <path d="M12 7V12L15.5 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Journal des actions</span>
+                </button>
+
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="nav-item logout" id="logoutButton">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 21H5.5A1.5 1.5 0 014 19.5V4.5A1.5 1.5 0 015.5 3H9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 17L21 12L16 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21 12H9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    </svg>
+                    <span>Déconnexion</span>
+                </button>
+            </div>
+
+        </aside>
+
+
+        <!-- ========================= -->
+        <!-- CONTENU PRINCIPAL -->
+        <!-- ========================= -->
+        <div class="main-wrapper">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Ouvrir le menu">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 6H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        <path d="M3 12H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        <path d="M3 18H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
+                </button>
+
+                <h1 class="page-title" id="pageTitle">Vue d'ensemble</h1>
+
+                <div class="topbar-user">
+                    <div class="user-avatar" id="userAvatar">--</div>
+                    <div class="user-info">
+                        <span class="user-name" id="userName">Chargement...</span>
+                        <span class="user-role">Administrateur</span>
+                    </div>
+                </div>
+
+            </header>
+
+            <!-- ZONE DE CONTENU (une section par page) -->
+            <main class="content-area">
+
+                <section class="content-section active" id="section-overview">
+
+                    <div id="overviewMessage" class="inline-message"></div>
+
+                    <div class="stats-grid">
+
+                        <div class="stat-card">
+                            <div class="stat-icon stat-icon-blue">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21 8L12 3L3 8V16L12 21L21 16V8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                                    <path d="M3 8L12 13L21 8" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-value" id="statProduits">—</span>
+                                <span class="stat-label">Produits référencés</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon stat-icon-purple">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 10L12 4L21 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M5 10V20H19V10" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-value" id="statDepots">—</span>
+                                <span class="stat-label">Dépôts actifs</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon stat-icon-green">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="3" y="3" width="7" height="9" rx="1.2" stroke="currentColor" stroke-width="1.6"/>
+                                    <rect x="14" y="3" width="7" height="5" rx="1.2" stroke="currentColor" stroke-width="1.6"/>
+                                    <rect x="14" y="12" width="7" height="9" rx="1.2" stroke="currentColor" stroke-width="1.6"/>
+                                    <rect x="3" y="16" width="7" height="5" rx="1.2" stroke="currentColor" stroke-width="1.6"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-value" id="statUnites">—</span>
+                                <span class="stat-label">Unités en stock</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon stat-icon-orange">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 9V13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                    <path d="M12 16.5V16.51" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M10.29 3.86L1.82 18A1.5 1.5 0 003.1 20.25H20.9A1.5 1.5 0 0022.18 18L13.71 3.86A1.5 1.5 0 0010.29 3.86Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-value" id="statAlertes">—</span>
+                                <span class="stat-label">Unités à surveiller (abîmées/périmées)</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="overview-columns">
+
+                        <div class="overview-panel">
+                            <h3 class="overview-panel-title">Répartition des unités par état</h3>
+                            <div id="repartitionEtats" class="repartition-list">
+                                <p class="section-placeholder">Chargement...</p>
+                            </div>
+                        </div>
+
+                        <div class="overview-panel">
+                            <h3 class="overview-panel-title">Unités par dépôt</h3>
+                            <div id="repartitionDepots" class="repartition-list">
+                                <p class="section-placeholder">Chargement...</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="overview-columns">
+
+                        <div class="overview-panel">
+                            <h3 class="overview-panel-title">Suivi opérationnel</h3>
+                            <div id="suiviOperationnel" class="repartition-list">
+                                <p class="section-placeholder">Chargement...</p>
+                            </div>
+                        </div>
+
+                        <div class="overview-panel">
+                            <h3 class="overview-panel-title">Activité récente</h3>
+                            <div id="activiteRecente" class="activity-list">
+                                <p class="section-placeholder">Chargement...</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <section class="content-section" id="section-produits">
+
+                    <div class="section-toolbar">
+                        <div class="section-toolbar-info">
+                            <span id="produitsCount">0 produit(s)</span>
+                        </div>
+                        <button class="btn-primary" id="btnAjouterProduit">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 5V19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                <path d="M5 12H19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            </svg>
+                            <span>Ajouter un produit</span>
+                        </button>
+                    </div>
+
+                    <div id="produitsMessage" class="inline-message"></div>
+
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nom</th>
+                                    <th>Pays fournisseur</th>
+                                    <th>Référence</th>
+                                    <th>Date création</th>
+                                    <th class="col-actions">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produitsTableBody">
+                                <tr>
+                                    <td colspan="6" class="table-empty">Chargement...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </section>
+
+
+                <!-- ========================= -->
+                <!-- MODAL PRODUIT (Ajout / Modification) -->
+                <!-- ========================= -->
+
+                <div class="modal-overlay" id="produitModalOverlay">
+                    <div class="modal-box">
+
+                        <div class="modal-header">
+                            <h3 id="produitModalTitle">Ajouter un produit</h3>
+                            <button class="modal-close" id="produitModalClose" aria-label="Fermer">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 6L18 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                    <path d="M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+
+                            <form id="produitForm">
+
+                                <input type="hidden" id="produitIdProduit">
+
+                                <div class="form-group">
+                                    <label for="produitNom">Nom du produit</label>
+                                    <input type="text" id="produitNom" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="produitPays">Pays fournisseur</label>
+                                    <input type="text" id="produitPays" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="produitReference">Référence produit</label>
+                                    <input type="text" id="produitReference" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="produitDate">Date de création</label>
+                                    <input type="date" id="produitDate" required>
+                                </div>
+
+                                <div id="produitFormMessage" class="inline-message"></div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn-secondary" id="produitCancelBtn">
+                                        Annuler
+                                    </button>
+                                    <button type="submit" class="btn-primary" id="produitSubmitBtn">
+                                        Enregistrer
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- ========================= -->
+                <!-- MODAL CONFIRMATION SUPPRESSION -->
+                <!-- ========================= -->
+
+                <div class="modal-overlay" id="confirmModalOverlay">
+                    <div class="modal-box modal-box-small">
+
+                        <div class="modal-header">
+                            <h3>Confirmer la suppression</h3>
+                            <button class="modal-close" id="confirmModalClose" aria-label="Fermer">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 6L18 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                    <path d="M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+                            <p id="confirmModalText">Voulez-vous vraiment supprimer cet élément ?</p>
+                            <div class="modal-footer">
+                                <button type="button" class="btn-secondary" id="confirmCancelBtn">
+                                    Annuler
+                                </button>
+                                <button type="button" class="btn-danger" id="confirmDeleteBtn">
+                                    Supprimer
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <section class="content-section" id="section-depots">
+
+                    <div class="section-toolbar">
+                        <div class="section-toolbar-info">
+                            <span id="depotsCount">0 dépôt(s)</span>
+                        </div>
+                        <button class="btn-primary" id="btnAjouterDepot">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 5V19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                <path d="M5 12H19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            </svg>
+                            <span>Ajouter un dépôt</span>
+                        </button>
+                    </div>
+
+                    <div id="depotsMessage" class="inline-message"></div>
+
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nom du dépôt</th>
+                                    <th>Description</th>
+                                    <th class="col-actions">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="depotsTableBody">
+                                <tr>
+                                    <td colspan="4" class="table-empty">Chargement...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </section>
+
+
+                <!-- ========================= -->
+                <!-- MODAL DEPOT (Ajout / Modification) -->
+                <!-- ========================= -->
+
+                <div class="modal-overlay" id="depotModalOverlay">
+                    <div class="modal-box">
+
+                        <div class="modal-header">
+                            <h3 id="depotModalTitle">Ajouter un dépôt</h3>
+                            <button class="modal-close" id="depotModalClose" aria-label="Fermer">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 6L18 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                    <path d="M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+
+                            <form id="depotForm">
+
+                                <input type="hidden" id="depotIdDepot">
+
+                                <div class="form-group">
+                                    <label for="depotNom">Nom du dépôt</label>
+                                    <input type="text" id="depotNom" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="depotDescription">Description</label>
+                                    <input type="text" id="depotDescription" placeholder="Optionnel">
+                                </div>
+
+                                <div id="depotFormMessage" class="inline-message"></div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn-secondary" id="depotCancelBtn">
+                                        Annuler
+                                    </button>
+                                    <button type="submit" class="btn-primary" id="depotSubmitBtn">
+                                        Enregistrer
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <section class="content-section" id="section-entrees">
+
+                    <div class="section-toolbar">
+                        <div class="section-toolbar-info">
+                            <span id="entreesCount">0 entrée(s)</span>
+                        </div>
+                        <button class="btn-secondary" id="btnRafraichirEntrees" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 11A8 8 0 105.5 16.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                                <path d="M20 5V11H14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Actualiser</span>
+                        </button>
+                    </div>
+
+                    <div id="entreesMessage" class="inline-message"></div>
+
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Produit</th>
+                                    <th>Dépôt</th>
+                                    <th>Utilisateur</th>
+                                    <th>Quantité</th>
+                                    <th>Date d'entrée</th>
+                                </tr>
+                            </thead>
+                            <tbody id="entreesTableBody">
+                                <tr>
+                                    <td colspan="6" class="table-empty">Chargement...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </section>
+
+                <section class="content-section" id="section-sorties">
+
+                    <div class="section-toolbar">
+                        <div class="section-toolbar-info">
+                            <span id="sortiesCount">0 sortie(s)</span>
+                        </div>
+                        <button class="btn-secondary" id="btnRafraichirSorties" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 11A8 8 0 105.5 16.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                                <path d="M20 5V11H14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Actualiser</span>
+                        </button>
+                    </div>
+
+                    <div id="sortiesMessage" class="inline-message"></div>
+
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Unité</th>
+                                    <th>Utilisateur</th>
+                                    <th>Motif</th>
+                                    <th>Date de sortie</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sortiesTableBody">
+                                <tr>
+                                    <td colspan="5" class="table-empty">Chargement...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </section>
+
+                <section class="content-section" id="section-transferts">
+
+                    <div class="section-toolbar">
+                        <div class="section-toolbar-info">
+                            <span id="transfertsCount">0 transfert(s)</span>
+                        </div>
+                        <button class="btn-secondary" id="btnRafraichirTransferts" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 11A8 8 0 105.5 16.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                                <path d="M20 5V11H14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Actualiser</span>
+                        </button>
+                    </div>
+
+                    <div id="transfertsMessage" class="inline-message"></div>
+
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Unité</th>
+                                    <th>Utilisateur</th>
+                                    <th>Dépôt source</th>
+                                    <th>Dépôt destination</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transfertsTableBody">
+                                <tr>
+                                    <td colspan="6" class="table-empty">Chargement...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </section>
+
+                <section class="content-section" id="section-inventaires">
+
+                    <div class="section-toolbar">
+                        <div class="section-toolbar-info">
+                            <span id="inventairesCount">0 inventaire(s)</span>
+                        </div>
+                        <button class="btn-secondary" id="btnRafraichirInventaires" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 11A8 8 0 105.5 16.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                                <path d="M20 5V11H14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Actualiser</span>
+                        </button>
+                    </div>
+
+                    <div id="inventairesMessage" class="inline-message"></div>
+
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Dépôt</th>
+                                    <th>Utilisateur</th>
+                                    <th>Date début</th>
+                                    <th>Date fin</th>
+                                    <th>Statut</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inventairesTableBody">
+                                <tr>
+                                    <td colspan="6" class="table-empty">Chargement...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </section>
+
+                <section class="content-section" id="section-signalements">
+
+                    <div class="section-toolbar">
+                        <div class="section-toolbar-info">
+                            <span id="signalementsCount">0 signalement(s)</span>
+                        </div>
+                        <button class="btn-secondary" id="btnRafraichirSignalements" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 11A8 8 0 105.5 16.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                                <path d="M20 5V11H14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Actualiser</span>
+                        </button>
+                    </div>
+
+                    <div id="signalementsMessage" class="inline-message"></div>
+
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Inventaire</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                    <th>Statut</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="signalementsTableBody">
+                                <tr>
+                                    <td colspan="6" class="table-empty">Chargement...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </section>
+
+                <section class="content-section" id="section-journal">
+
+                    <div class="section-toolbar">
+                        <div class="section-toolbar-info">
+                            <span id="journalCount">0 action(s)</span>
+                        </div>
+                        <button class="btn-secondary" id="btnRafraichirJournal" type="button">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 11A8 8 0 105.5 16.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                                <path d="M20 5V11H14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Actualiser</span>
+                        </button>
+                    </div>
+
+                    <div id="journalMessage" class="inline-message"></div>
+
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Utilisateur</th>
+                                    <th>Action</th>
+                                    <th>Détails</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="journalTableBody">
+                                <tr>
+                                    <td colspan="5" class="table-empty">Chargement...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </section>
+
+            </main>
+
+        </div>
+
+        <!-- OVERLAY POUR MOBILE -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- NOTIFICATIONS -->
+        <div class="toast-container" id="toastContainer"></div>
+
+    </div>
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/produits.js"></script>
+    <script src="js/depots.js"></script>
+    <script src="js/entrees.js"></script>
+    <script src="js/sorties.js"></script>
+    <script src="js/transferts.js"></script>
+    <script src="js/inventaires.js"></script>
+    <script src="js/signalements.js"></script>
+    <script src="js/journal.js"></script>
+    <script src="js/overview.js"></script>
+</body>
+</html>
